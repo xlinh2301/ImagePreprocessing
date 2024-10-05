@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Similarity Results</title>
+</head>
+<body>
+    <h1>Uploaded Image</h1>
+    <img src="{{ input_image }}" alt="Uploaded Image" style="max-width: 300px;">
+    <h1>Similar Images</h1>
+    <div style="display: flex; flex-wrap: wrap;">
+        {% for result in results %}
+            <div style="margin: 10px;">
+                <img src="{{ result[0] }}" alt="Similar Image" style="max-width: 150px;">
+                <p>Score: {{ result[1]:.2f }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/">Upload another image</a>
+</body>
+</html>
