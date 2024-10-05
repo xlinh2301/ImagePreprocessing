@@ -34,3 +34,7 @@ cd frontend
 npm i
 npm start
 ```
+
+## Demo
+
+![Demo](./demo.mp4)
