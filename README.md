@@ -26,8 +26,8 @@ pip install -r requirements.txt
 ```
 
 ## Data
-- You should put a folder seg and seg_test in ImagePreprocessing folder
-
+- I put a folder seg and seg_test in ImagePreprocessing folder
+- Edit file config.py and file frontend/scr/config.js to your path dataset
 ## Run backend
 ```
 uvicorn app:app --reload --port 8002
