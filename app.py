@@ -13,7 +13,7 @@ from starlette.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from werkzeug.utils import secure_filename
-
+from config import PATH_TO_DATASET, PATH_TO_DATASET_SEG
 app = FastAPI()
 
 app.add_middleware(
@@ -25,7 +25,7 @@ app.add_middleware(
 )
 
 
-app.mount("/seg", StaticFiles(directory="E:/Docs/ImagePreprocessing/Lab-02/seg"), name="seg")
+app.mount("/seg", StaticFiles(directory=PATH_TO_DATASET_SEG), name="seg")
 templates = Jinja2Templates(directory="templates")
 
 def load_features(pkl_file):
@@ -57,7 +57,7 @@ def find_similar_images(hist_input, features):
             continue
         comparison_result = compare_Hist(hist_feature, hist_input)
         img_path = img_path.split('/')[1:]
-        img_path = os.path.join('E:/Docs/ImagePreprocessing/Lab-02', *img_path)
+        img_path = os.path.join(PATH_TO_DATASET, *img_path)
         info = {
             "img_path": img_path,
             "comparison_result": comparison_result

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import config from './config'; // Đảm bảo đường dẫn đúng đến tệp config.js
 
 function App() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -61,8 +62,9 @@ function App() {
           <div id="similar-images" style={{ display: 'flex', flexWrap: 'wrap' }}>
             {similarImages.map((result, index) => {
               const normalizedPath = result.img_path.replace(/\\/g, '/');
-              if (normalizedPath.includes('E:/Docs/ImagePreprocessing/Lab-02/')) {
-                const relativePath = normalizedPath.split('E:/Docs/ImagePreprocessing/Lab-02/')[1];
+              const basePath = config.IMAGE_PREPROCESSING_PATH;
+              if (normalizedPath.includes(basePath)) {
+                const relativePath = normalizedPath.split(basePath)[1];
                 const imgSrc = `http://127.0.0.1:8002/${relativePath}`;
                 // const imgSrc = result.img_path;
                 console.log(imgSrc)
