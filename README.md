@@ -37,4 +37,4 @@ npm start
 
 ## Demo
 
-![Demo](./demo.mp4)
+![Demo](./demo.gif)
